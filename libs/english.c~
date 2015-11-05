@@ -16,7 +16,7 @@ int englishArayPrint(int i, int e_flag)
 {
    int j = 0;
    for (j = 0; j <= _where; j++)
-      printf("%c", in[j]);
+      printf("%s", unicode_to_utf8(in[j]));
    e_flag++;
 
    return e_flag;
