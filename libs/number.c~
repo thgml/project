@@ -4,20 +4,39 @@ void changeToNum(char a)
    in[_where] = a;
 
    if (in[_where] == '0')
-      printf(" ");
+      printf("space\n");
    else
    {
       while (1)
       {
          ch = getche();
-          _where++;
-          in[_where] = ch;
+	 if(ch == '+')
+	 {
+		printf("change\n");
+		return;
+	 }
+	 if(ch == '-')
+	 {
+		printf("delete\n");
+	 }
+	 else
+	 {
+         	_where++;
+         	in[_where] = ch;
+	 }
       }
    }
 }
 
 int main()
 {
-	
-	changeToNum();
+	char ch;
+	while(1)
+	{
+		
+		ch = getche();
+		changeToNum(ch);
+		
+		
+	}
 }
