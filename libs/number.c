@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <locale.h>
+#include <termios.h>
 
 char in[100];
 
