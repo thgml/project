@@ -11,10 +11,18 @@ char englishLarge[10][4] = { {}, { 'P', 'Q', 'R', 'S' }, { 'T', 'U', 'V' }, { 'W
 { '.', '?', '!' }, { 'A', 'B', 'C' }, { 'D', 'E', 'F' } };
 
 int _where =0;
-
-int englishArayPrint(int i, int e_flag)
+int capsLock = 0;
+int englishArayPrint(int i, int e_flag, int capsLock)
 {
    int j = 0;
+   if (e_flag == 3)
+   {
+      if (englishSmall[i][3] == ' ')
+         e_flag = 0;
+   }
+   if (e_flag == 4)
+      e_flag = 0;
+
    for (j = 0; j <= _where; j++)
       printf("%c", in[j]);
    e_flag++;
@@ -30,10 +38,28 @@ void changeToEnglish(char a)
 	while(1)
 	{
 		ch = getche();
-		e_flag = 0;
-		_where++;
-		in[_where] =ch;
-		e_flag=englishArayPrint(ch - '0',e_flag);
+		if (ch == a) //같은건가
+         	{
+            		e_flag = englishArayPrint(a - '0', e_flag, capsLock);
+        	 }
+         	else  //같지 않아
+         	{
+        	    if (in[_where] == '0')  
+            	    {
+               		a = ch;
+               		e_flag = 0;
+               		in[_where] = ch;
+               		e_flag = englishArayPrint(ch - '0', e_flag, capsLock);
+ 		    }
+  
+  	            else
+                    {
+               		a = ch;
+               		e_flag = 0;
+   		       in[_where] = ch;
+        	       e_flag = englishArayPrint(ch - '0', e_flag, capsLock);
+           	     }
+                  }
 	}
 }
 
