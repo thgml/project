@@ -5,6 +5,7 @@
 #include <termios.h>
 
 char in[100];
+int eras = 1;
 
 int getche(void)
 {
@@ -37,14 +38,34 @@ void changeToNum(char a)
 		printf("change\n");
 		return;
 	 }
+	 if(ch == '.')
+	 {
+		_where++;
+		printf("space");
+		if(eras != 0)
+		{
+			eras = 0;
+			continue;
+		}
+	 }
 	 if(ch == '-')
 	 {
+		if(eras == 0)
+		{
+			_where++;
+			eras = 100;
+		}	
 		printf("delete\n");
+		continue;
 	 }
 	 else
 	 {
          	_where++;
          	in[_where] = ch;
+		if(eras != 0)
+		{	
+			eras = 0;
+		}
 	 }
       }
    }
