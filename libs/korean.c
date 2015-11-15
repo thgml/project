@@ -11,18 +11,48 @@ int consCheck = 0;
 int firstPosition = 0;
 int consonantPrint(int i)
 {
-	 if (consCheck == 0) //////얘는 초성이야
-  	 {
-     		 for (j = 0; j < 19; j++)
-     		 {
-        		 if (wcHead[j] == consonant[i][k_flag])
-        		 {
-           			 firstPosition = j; //////초성위치 결정 
-           			 break;
-        		 }
-     		 }
-      in[_where] = wcHead[j];
-  	 }
+   int check = 0;
+   int quit = 0;
+   int j = 0;
+   if (k_flag == 1)
+   {
+      if (consonant[i][1] == ' ')
+         k_flag = 0;
+   }
+   if (k_flag == 2)
+   {
+      if (consonant[i][2] == ' ')
+         k_flag = 0;
+   }
+   if (k_flag == 3)
+      k_flag = 0;
+   if (consCheck == 0) //////얘는 초성이야
+   {
+   	 for (j = 0; j < 19; j++)
+     	{
+       		 if (wcHead[j] == consonant[i][k_flag])
+       		 {
+          		firstPosition = j; //////초성위치 결정 
+           		break;
+        	 }
+     	 }
+         in[_where] = wcHead[j];
+  }
+  else if (consCheck == 1)//얘는 종성
+   {
+      if (lastPosition2 == 0)
+      {
+         for (j = 0; j < 28; j++)
+         {
+            if (wcTail[j] == consonant[i][k_flag])
+            {
+               lastPosition2 = j;
+               cpylastPosition = lastPosition;
+               break;
+            }
+         }
+       }
+   }
 }
 int main (void)
 {
