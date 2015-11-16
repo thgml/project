@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <termios.h>
-#include <unistd.h>
 
 int whenSpace = 0;
 int _where = 0;

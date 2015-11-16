@@ -75,11 +75,9 @@ int main()
 {
 	char ch;
 	while(1)
-	{
-		
+	{	
 		ch = getche();
 		changeToNum(ch);
-		
-		
 	}
+	return 0;
 }

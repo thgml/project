@@ -56,11 +56,16 @@ void changeToNum(char a)
 			eras = 100;
 		}	
 		printf("delete\n");
+		continue;
 	 }
 	 else
 	 {
          	_where++;
          	in[_where] = ch;
+		if(eras != 0)
+		{	
+			eras = 0;
+		}
 	 }
       }
    }
