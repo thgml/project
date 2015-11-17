@@ -9,6 +9,10 @@ wchar_t vowel[5][7] = { { L'ㅣ', L' ', L'ㅏ', L'ㅐ', L'ㅑ', L'ㅒ' }
 
 int consCheck = 0;
 int firstPosition = 0;
+void gotoxy(int x, int y)
+{
+   printf("\033[%d;%dH", y + 1, x + 1);
+}
 int consonantPrint(int i)
 {
    int check = 0;
@@ -50,6 +54,21 @@ int consonantPrint(int i)
                cpylastPosition = lastPosition;
                break;
             }
+         }
+	 if (lastPosition == 1) //ㄱ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;// 
+            if (wcTail[lastPosition2] == doubleSupport3[0])
+            {
+               lastPosition = 3;
+               third_select = 1;
+               quit = 1;
+            }
+            if (quit != 1)
+               quit = 2;
          }
        }
    }
