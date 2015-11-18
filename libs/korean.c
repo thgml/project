@@ -1,3 +1,13 @@
+#include <stdio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <wchar.h>
+#include <locale.h>
+#include <stdlib.h>
+
+wchar_t in[1000];
+int now = 0;
+
 wchar_t consonant[10][3] = { { L'ㅇ', L'ㅁ' }, { L'ㅂ', L'ㅍ', L'ㅃ' }, { L'ㅅ', L'ㅎ', L'ㅆ' }, { L'ㅈ', L'ㅊ', L'ㅉ' },
 { L'ㄱ', L'ㅋ', L'ㄲ' }, { L'ㄴ', L'ㄹ' }, { L'ㄷ', L'ㅌ', L'ㄸ' },
 { L'ㅣ' }, { L'*' }, { L'ㅡ' } };
@@ -66,6 +76,25 @@ int consonantPrint(int i)
                lastPosition = 3;
                third_select = 1;
                quit = 1;
+            }
+            if (quit != 1)
+               quit = 2;
+         }
+	else if (lastPosition == 4) //ㄴ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;/
+            for (j = 0; j < 2; j++)
+            {
+               if (wcTail[lastPosition2] == doubleSupport1[j])
+               {
+                  lastPosition = lastPosition + j + 1;
+                  quit = 1;
+                  third_select = 1;
+                  break;
+               }
             }
             if (quit != 1)
                quit = 2;
