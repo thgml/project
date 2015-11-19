@@ -12,7 +12,7 @@ void gotoxy(int x, int y)
 	printf("\n");
 }
 
-void space()
+void space() //space(j, _where, consCheck, vowelCheck, whenSpace, save)
 {
 	int j = 0;
 
@@ -21,6 +21,7 @@ void space()
 	in[_where] = ' ';
 
 	// console check
+
 	whenSpace = 1;
 
 	for (j = 0; j <= _where; j++)
