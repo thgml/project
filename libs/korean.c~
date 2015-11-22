@@ -1,3 +1,13 @@
+#include <stdio.h>
+#include <termios.h>
+#include <unistd.h>
+#include <wchar.h>
+#include <locale.h>
+#include <stdlib.h>
+
+wchar_t in[1000];
+int now = 0;
+
 wchar_t consonant[10][3] = { { L'ㅇ', L'ㅁ' }, { L'ㅂ', L'ㅍ', L'ㅃ' }, { L'ㅅ', L'ㅎ', L'ㅆ' }, { L'ㅈ', L'ㅊ', L'ㅉ' },
 { L'ㄱ', L'ㅋ', L'ㄲ' }, { L'ㄴ', L'ㄹ' }, { L'ㄷ', L'ㅌ', L'ㄸ' },
 { L'ㅣ' }, { L'*' }, { L'ㅡ' } };
@@ -69,6 +79,74 @@ int consonantPrint(int i)
             }
             if (quit != 1)
                quit = 2;
+         }
+	else if (lastPosition == 4) //ㄴ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;/
+            for (j = 0; j < 2; j++)
+            {
+               if (wcTail[lastPosition2] == doubleSupport1[j])
+               {
+                  lastPosition = lastPosition + j + 1;
+                  quit = 1;
+                  third_select = 1;
+                  break;
+               }
+            }
+            if (quit != 1)
+               quit = 2;
+         }
+	else if (lastPosition == 8) //ㄹ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;////////ㄱ->ㅈ->ㅊ의 경우 없는 받침이지!
+            for (j = 0; j < 7; j++)
+            {
+               if (wcTail[lastPosition2] == doubleSupport2[j])
+               {
+                  lastPosition = lastPosition + j + 1;
+                  quit = 1;
+                  third_select = 1;
+                  break;
+               }
+            }
+            if (quit != 1)
+               quit = 2;
+         }
+         else if (lastPosition == 17) //ㅂ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;///
+            if (wcTail[lastPosition2] == doubleSupport3[0])
+            {
+               lastPosition = 18;
+               third_select = 1;
+               quit = 1;
+            }
+            if (quit != 1)
+               quit = 2;
+         }
+         else
+            quit = 2;
+         }
+	if (quit == 0)
+      {
+         for (j = 0; j < 28; j++)
+         {
+            if (wcTail[j] == consonant[i][k_flag])
+            {
+               check = 1;
+               lastPosition = j;
+               in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28) + lastPosition;
+               break;
+            }
          }
        }
    }

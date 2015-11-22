@@ -99,6 +99,55 @@ int consonantPrint(int i)
             if (quit != 1)
                quit = 2;
          }
+	else if (lastPosition == 8) //ㄹ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;///
+            for (j = 0; j < 7; j++)
+            {
+               if (wcTail[lastPosition2] == doubleSupport2[j])
+               {
+                  lastPosition = lastPosition + j + 1;
+                  quit = 1;
+                  third_select = 1;
+                  break;
+               }
+            }
+            if (quit != 1)
+               quit = 2;
+         }
+         else if (lastPosition == 17) //ㅂ
+         {
+            if (third_select != 100)
+               third_select = 100;
+            else if (third_select == 100)
+               third_select = 200;///
+            if (wcTail[lastPosition2] == doubleSupport3[0])
+            {
+               lastPosition = 18;
+               third_select = 1;
+               quit = 1;
+            }
+            if (quit != 1)
+               quit = 2;
+         }
+         else
+            quit = 2;
+         }
+	if (quit == 0)
+      {
+         for (j = 0; j < 28; j++)
+         {
+            if (wcTail[j] == consonant[i][k_flag])
+            {
+               check = 1;
+               lastPosition = j;
+               in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28) + lastPosition;
+               break;
+            }
+         }
        }
    }
 }
