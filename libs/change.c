@@ -16,20 +16,17 @@ void change()
 	}
 
 	// display
-
 	for(j=0; j<=_where; j++)
 		printf("%s", unicode_to_utf8(in[j]));
 
-	
 	// display
 	for(j=0; j<=_where; j++)
 		printf("%s", unicode_to_utf8(in[j]));	
-
 }
 
 int main()
 {
+	change();
 	change();	
-
 	return 0;
 }
