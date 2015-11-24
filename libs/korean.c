@@ -149,6 +149,37 @@ int consonantPrint(int i)
             }
          }
        }
+	 else if (quit == 2)
+      {
+         if (third_select == 100)
+         {
+            if (lastPosition == 7 || lastPosition == 16 || lastPosition == 19 || lastPosition == 21 || lastPosition == 22 ||
+               lastPosition == 23 || lastPosition == 24 || lastPosition == 25 || lastPosition == 26 || lastPosition == 27)
+               consCheck = 0;
+            else
+            {
+               exception2 = 1;////
+               cpyfirstPosition = firstPosition;
+            }
+         }
+         else if (third_select == 200)
+            _where--;
+         else if (third_select == 1)
+            third_select = 0;
+         vowelCheck = 0;
+         _where++;
+         for (j = 0; j < 18; j++)
+         {
+            if (wcHead[j] == consonant[i][k_flag])
+            {
+               firstPosition = j;
+               in[_where] = wcHead[j];
+               if (third_select != 100)
+                  consCheck = 0;
+               break;
+            }
+         }
+      }
    }
 }
 int main (void)
