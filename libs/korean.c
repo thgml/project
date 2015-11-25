@@ -229,6 +229,50 @@ int consonantPrint(int i)
    k_flag++;
    return k_flag;
 }
+void changeToKorean(wchar_t a)
+{
+	wchar_t ch;
+	int cons_flag =0;
+	int vowel_sum =0;
+	int i =0;
+	int j =0;
+	in[_where] = a;
+	if(in[_where] == '.')
+		space();
+	else
+	{
+		while(1)
+		{
+			ch = getche();
+			if(ch =='+')
+			{
+				change();
+				return ;
+			}
+			if(ch == '-')
+			{
+				if(eras == 0)
+				{
+					_where ++;
+					eras = 100;
+				}
+				backspace();
+				now =1;
+				continue;
+			}
+			if(ch == '.')
+			{
+				_where++;
+				space();
+				if(eras !=0)
+					eras =0;
+				now =0;
+				_where ++;
+				continue;
+			}
+		}
+	}
+}
 int main (void)
 {
 	return 0;

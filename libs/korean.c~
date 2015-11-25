@@ -40,19 +40,19 @@ int consonantPrint(int i)
    }
    if (k_flag == 3)
       k_flag = 0;
-   if (consCheck == 0) //////얘는 초성이야
+   if (consCheck == 0) //
    {
-   	 for (j = 0; j < 19; j++)
-     	{
-       		 if (wcHead[j] == consonant[i][k_flag])
-       		 {
-          		firstPosition = j; //////초성위치 결정 
-           		break;
-        	 }
-     	 }
-         in[_where] = wcHead[j];
-  }
-  else if (consCheck == 1)//얘는 종성
+      for (j = 0; j < 19; j++)
+      {
+         if (wcHead[j] == consonant[i][k_flag])
+         {
+            firstPosition = j; // 
+            break;
+         }
+      }
+      in[_where] = wcHead[j];
+   }
+   else if (consCheck == 1)/
    {
       if (lastPosition2 == 0)
       {
@@ -65,12 +65,12 @@ int consonantPrint(int i)
                break;
             }
          }
-	 if (lastPosition == 1) //ㄱ
+         if (lastPosition == 1) //
          {
             if (third_select != 100)
                third_select = 100;
             else if (third_select == 100)
-               third_select = 200;// 
+               third_select = 200;//
             if (wcTail[lastPosition2] == doubleSupport3[0])
             {
                lastPosition = 3;
@@ -80,12 +80,12 @@ int consonantPrint(int i)
             if (quit != 1)
                quit = 2;
          }
-	else if (lastPosition == 4) //ㄴ
+         else if (lastPosition == 4) //
          {
             if (third_select != 100)
                third_select = 100;
             else if (third_select == 100)
-               third_select = 200;/
+               third_select = 200;//
             for (j = 0; j < 2; j++)
             {
                if (wcTail[lastPosition2] == doubleSupport1[j])
@@ -99,12 +99,12 @@ int consonantPrint(int i)
             if (quit != 1)
                quit = 2;
          }
-	else if (lastPosition == 8) //ㄹ
+         else if (lastPosition == 8) //
          {
             if (third_select != 100)
                third_select = 100;
             else if (third_select == 100)
-               third_select = 200;///
+               third_select = 200;//
             for (j = 0; j < 7; j++)
             {
                if (wcTail[lastPosition2] == doubleSupport2[j])
@@ -118,12 +118,12 @@ int consonantPrint(int i)
             if (quit != 1)
                quit = 2;
          }
-         else if (lastPosition == 17) //ㅂ
+         else if (lastPosition == 17) //
          {
             if (third_select != 100)
                third_select = 100;
             else if (third_select == 100)
-               third_select = 200;///
+               third_select = 200;/////
             if (wcTail[lastPosition2] == doubleSupport3[0])
             {
                lastPosition = 18;
@@ -135,8 +135,8 @@ int consonantPrint(int i)
          }
          else
             quit = 2;
-         }
-	if (quit == 0)
+      }
+      if (quit == 0)
       {
          for (j = 0; j < 28; j++)
          {
@@ -148,8 +148,24 @@ int consonantPrint(int i)
                break;
             }
          }
-       }
-	 else if (quit == 2)
+         //////
+         if (check != 1)
+         {
+            for (j = 0; j < 19; j++)
+            {
+               in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28);
+               if (wcHead[j] == consonant[i][k_flag])
+               {
+                  exception1 = 1;
+                  firstPosition = j;/
+                  break;
+               }
+            }
+            _where++;
+            in[_where] = consonant[i][k_flag];
+         }
+      }
+      else if (quit == 2)
       {
          if (third_select == 100)
          {
@@ -158,7 +174,7 @@ int consonantPrint(int i)
                consCheck = 0;
             else
             {
-               exception2 = 1;////
+               exception2 = 1;///
                cpyfirstPosition = firstPosition;
             }
          }
@@ -180,7 +196,38 @@ int consonantPrint(int i)
             }
          }
       }
+      else
+      {
+         if (exception2 == 1) /
+         {
+            in[_where] = 0;
+            _where--;
+            firstPosition = cpyfirstPosition;
+         }
+         in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28) + lastPosition;
+      }
    }
+   else if (consCheck == 3)/
+   {
+      in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28) + cpylastPosition;
+      _where++;
+      for (j = 0; j < 19; j++)
+      {
+         if (wcHead[j] == consonant[i][k_flag])
+         {
+            firstPosition = j; ///
+            break;
+         }
+      }
+      in[_where] = wcHead[j];
+      vowelCheck = 0;
+      third_select = 0;
+   }
+   display();
+   for (j = 0; j <= _where; j++)
+      printf("%s", unicode_to_utf8(in[j]));
+   k_flag++;
+   return k_flag;
 }
 int main (void)
 {
