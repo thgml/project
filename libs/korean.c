@@ -270,6 +270,30 @@ void changeToKorean(wchar_t a)
 				_where ++;
 				continue;
 			}
+			else if(ch == '7' || ch =='8' || ch =='9')
+			{
+				if(whatVowel == -100)
+				{
+					if(ch =='7' || ch =='9')
+						whatVowel =0;
+					else if(ch == '8')//
+					{
+						whatVowel = 100;
+						display();
+						for(j =0 ;j<=_where;j++)
+							printf("%s",unicode_to_utf8(in[j]);
+						printf("%s",unicode_to_utf8(consonant[8][0]));
+						continue;
+					}
+				}
+				else if(whatVowel == 100)
+				{
+					if(ch =='8')
+						whatVowel =10;
+					else
+						whatVowel =2;
+				}
+			}
 		}
 	}
 }
