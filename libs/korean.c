@@ -229,6 +229,32 @@ int consonantPrint(int i)
    k_flag++;
    return k_flag;
 }
+int vowelPrint(int i, int now, int vowel_sum)
+{
+   int j = 0;
+   int k = 0;
+   vowel_sum = vowel_sum + now;
+   if (save == -100)
+   {
+      if (whatVowel == 2 || whatVowel == 10)
+      {
+         if (i == 1)
+            i = 3;
+         else if (i == 2)
+            i = 4;
+         else if (i == 3)
+            i = 5;
+      }
+      else
+      {
+         if (i == 1)
+            i = 1;
+         else if (i == 3)
+            i = 2;
+      }
+      save = i;
+   }
+}
 void changeToKorean(wchar_t a)
 {
 	wchar_t ch;
