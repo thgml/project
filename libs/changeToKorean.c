@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <termios.h>
 #include <unistd.h>
+#include <wchar.h>
+#include <locale.h>
 #include <stdlib.h>
 
 void changeToKorean(char a)

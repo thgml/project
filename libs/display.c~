@@ -12,7 +12,38 @@ void gotoxy(int x, int y)
 	printf("\n");
 }
 
-void display()
+void change()
+{
+   int j = 0;
+   if (flag == 2 || flag == 3)
+   {
+      if (now == 1)
+         _where--;
+   }
+   //system("cls");
+   display();
+   for (j = 0; j <= _where; j++)
+      printf("%s", unicode_to_utf8(in[j]));
+   if (flag == 1)
+      flag = 2;
+   else if (flag == 2)
+      flag = 3;
+   else if (flag == 3)
+      flag = 1;
+   //system("cls");
+   display();
+   for (j = 0; j <= _where; j++)
+      printf("%s", unicode_to_utf8(in[j]));
+   whenChange = 1;
+   consCheck = 0;
+   vowelCheck = 0;
+   save = -100;
+   k_flag = 0;
+   now = 0;
+   return;
+}
+
+void display(int *flag, int *capsLock)
 {
 	int y, x, z, cnt = 6;
 	for (y = 2; y <= 8; y += 3)
@@ -48,7 +79,7 @@ void display()
 	printf("0");
 	gotoxy(4, 12);
 	if (flag == 1)
-		printf("%s%s", unicode_to_utf8(consonant[0][0]), unicode_to_utf8(consonant[0][1]));
+		printf("str str");
 	else if (flag == 2 && capsLock == 0)
 		printf("Large");
 	else if (flag == 2 && capsLock == 1)
