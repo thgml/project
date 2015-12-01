@@ -265,7 +265,23 @@ int vowelPrint(int i, int now, int vowel_sum)
             break;
          }
       }
-   }	
+   }
+	else if (vowelCheck == 1) //받침으로 처리한 자음과 모음관리
+         {
+            if (exception1 == 0)
+            {
+               in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28);
+               middlePosition = j;
+               if (first_select == 0)
+                  _where++;
+               else if (first_select == 1)
+               {
+                  if (whatVowel == 10)// 오요우유..... 
+                     _where++;
+                  in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28);
+               }
+             }
+         }	
 }
 void changeToKorean(wchar_t a)
 {

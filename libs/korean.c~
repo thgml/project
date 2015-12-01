@@ -254,6 +254,18 @@ int vowelPrint(int i, int now, int vowel_sum)
       }
       save = i;
    }
+   for (j = 0; j < 21; j++)
+   {
+      if (wcMid[j] == vowel[save - 1][vowel_sum])
+      {
+         if (vowelCheck == 0) //첫번째 모음 관리
+         {
+            middlePosition = j;
+            in[_where] = 44032 + (firstPosition * 588) + (middlePosition * 28);
+            break;
+         }
+      }
+   }	
 }
 void changeToKorean(wchar_t a)
 {
