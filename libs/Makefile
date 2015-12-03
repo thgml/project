@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-libfuncs.a : utf.o gotoxy.o
+libfuncs.a : utf8.o gotoxy.o
 	ar rv libfuncs.a utf.o gotoxy.o
 func1.o : utf.c utf.o
 	gcc -c -g -I ~/jinsook/homework/include utf.c -o utf.o
