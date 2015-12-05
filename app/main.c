@@ -436,10 +436,30 @@ int getche(void)
 
 int main (void)
 {
-   setlocale(LC_ALL, "korean");
+    setlocale(LC_ALL, "korean");
    wchar_t ch;
-   while(1)
+   display();
+   while (1)
    {
-	
+      ch = getche();
+      if (ch == '-')
+      {
+         backspace();
+         continue;
+      }
+      if (ch == '+')
+      {
+         change();
+         continue;
+      }
+      if (flag == 1) //한글
+      {
+         changeToKorean(ch);
+      }
+      else if (flag == 2) //영어
+         changeToEnglish(ch);
+      else if (flag == 3) //숫자
+         changeToNum(ch);
+      _where++;
    }
 }
