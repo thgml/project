@@ -1,4 +1,0 @@
-.PHONY: all clean
-
-libfuncs.a: func1.o func2.o
-
