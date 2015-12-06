@@ -6,12 +6,6 @@ int whenSpace = 0;
 int _where = 0;
 int in[10];
 
-void gotoxy(int x, int y)
-{
-	printf("%d;%d", y + 1, x + 1);
-	printf("\n");
-}
-
 void change()
 {
 	int j = 0;
