@@ -7,6 +7,23 @@
 char in[100];
 int eras = 1;
 
+wchar_t englishSmall[10][4] = { {}, { 'p', 'q', 'r', 's' }, { 't', 'u', 'v' }, { 'w', 'x', 'y', 'z' },
+{ 'g', 'h', 'i' }, { 'j', 'k', 'l' }, { 'm', 'n', 'o' },
+{ '.', '?', '!' }, { 'a', 'b', 'c' }, { 'd', 'e', 'f' } };
+wchar_t englishLarge[10][4] = { {}, { 'P', 'Q', 'R', 'S' }, { 'T', 'U', 'V' }, { 'W', 'X', 'Y', 'Z' },
+{ 'G', 'H', 'I' }, { 'J', 'K', 'L' }, { 'M', 'N', 'O' },
+{ '.', '?', '!' }, { 'A', 'B', 'C' }, { 'D', 'E', 'F' } };
+wchar_t consonant[10][3] = { { L'ㅇ', L'ㅁ' }, { L'ㅂ', L'ㅍ', L'ㅃ' }, { L'ㅅ', L'ㅎ', L'ㅆ' }, { L'ㅈ', L'ㅊ', L'ㅉ' },
+{ L'ㄱ', L'ㅋ', L'ㄲ' }, { L'ㄴ', L'ㄹ' }, { L'ㄷ', L'ㅌ', L'ㄸ' },
+{ L'ㅣ' }, { L'*' }, { L'ㅡ' } };
+wchar_t vowel[5][7] = { { L'ㅣ', L' ', L'ㅏ', L'ㅐ', L'ㅑ', L'ㅒ' }
+, { L'ㅡ', L'ㅢ', L'ㅜ', L'ㅟ', L'ㅠ', L'ㅝ', L'ㅞ' }
+, { L'ㅓ', L'ㅔ' }
+, { L' ', L'ㅕ', L'ㅖ', L'ㅛ' }
+, { L'ㅗ', L'ㅚ', L' ', L'ㅘ', L'ㅙ' } };
+wchar_t doubleSupport1[] = { L'ㅈ', L'ㅎ' };//ㄴ받침
+wchar_t doubleSupport2[] = { L'ㄱ', L'ㅁ', L'ㅂ', L'ㅅ', L'ㅌ', L'ㅍ', L'ㅎ' }; //ㄹ
+
 int getche(void)
 {
    struct termios oldattr, newattr;
