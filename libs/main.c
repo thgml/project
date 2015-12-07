@@ -62,6 +62,48 @@ void change()
 
 	return;
 }
+void space() //space(j, _where, consCheck, vowelCheck, whenSpace, save)
+{
+	int j = 0;
+
+	//display
+
+	in[_where] = ' ';
+
+	// console check
+
+	whenSpace = 1;
+
+	for (j = 0; j <= _where; j++)
+		printf("%s", in[j]);
+}
+
+void backspace()
+{
+	int j = 0;
+
+	if (whenSpace == 1)
+	{
+		_where -= 2;
+		whenSpace = 0;
+	}
+	else
+		_where -= 1;
+
+	// console check
+
+	//display fuction
+
+	if (_where <= 0)
+	{
+		_where = 0;
+		//erase
+	}
+
+	in[_where] = 0;
+	for (j = 0; j < _where; j++)
+		printf("%s", in[j]);
+}
 
 void changeToKorean(char a)
 {
