@@ -4,6 +4,27 @@
 #include <wchar.h>
 #include <locale.h>
 #include <stdlib.h>
+
+//초성 
+static const wchar_t wcHead[] = { L'ㄱ', L'ㄲ', L'ㄴ', L'ㄷ',
+L'ㄸ', L'ㄹ', L'ㅁ', L'ㅂ',
+L'ㅃ', L'ㅅ', L'ㅆ', L'ㅇ',
+L'ㅈ', L'ㅉ', L'ㅊ', L'ㅋ',
+L'ㅌ', L'ㅍ', L'ㅎ' };
+//중성 
+static const wchar_t wcMid[] = { L'ㅏ', L'ㅐ', L'ㅑ', L'ㅒ',
+L'ㅓ', L'ㅔ', L'ㅕ', L'ㅖ',
+L'ㅗ', L'ㅘ', L'ㅙ', L'ㅚ',
+L'ㅛ', L'ㅜ', L'ㅝ', L'ㅞ',
+L'ㅟ', L'ㅠ', L'ㅡ', L'ㅢ', L'ㅣ' };
+//종성 
+static const wchar_t wcTail[] = { L' ', L'ㄱ', L'ㄲ', L'ㄳ',
+L'ㄴ', L'ㄵ', L'ㄶ', L'ㄷ',
+L'ㄹ', L'ㄺ', L'ㄻ', L'ㄼ',
+L'ㄽ', L'ㄾ', L'ㄿ', L'ㅀ',
+L'ㅁ', L'ㅂ', L'ㅄ', L'ㅅ',
+L'ㅆ', L'ㅇ', L'ㅈ', L'ㅊ',
+L'ㅋ', L'ㅌ', L'ㅍ', L'ㅎ' };
 int consonantPrint(int i)
 {
    int check = 0;

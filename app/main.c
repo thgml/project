@@ -4,7 +4,21 @@
 #include <wchar.h>
 #include <locale.h>
 #include <stdlib.h>
-
+int firstPosition = 0, cpyfirstPosition = 0;
+int middlePosition;
+int lastPosition = 0, lastPosition2 = -100, cpylastPosition = 0;//복사본
+int doubleCons = 0;
+int _where = 0;
+int flag = 1;
+int eras = 0; //영어 backspace
+int consCheck = 0; //초성인지 , 종성인지 확인해야지
+int vowelCheck = 0; ///첫번째 모은인지 두번째 모음인지...
+int first_select = 0, second_select = 0, third_select = 0; // 자음이 결정 되어있는지  ///자리때문에 전역으로
+int exception1 = 0, exception2 = 0;// 기삐 두번쨰 모음 예외
+int whatVowel = -100;/////////8번먼저 눌렸을때
+int save = -100, whenSpace = 0, whenBackspace = 0, whenChange = 0; //임시저장
+int k_flag = 0;
+int capsLock = 0;
 //초성 
 static const wchar_t wcHead[] = { L'ㄱ', L'ㄲ', L'ㄴ', L'ㄷ',
 L'ㄸ', L'ㄹ', L'ㅁ', L'ㅂ',
